@@ -28,7 +28,7 @@ export const Form = ({ handleSubmit, handleFileChange, file, setFile, error }) =
                 {file && <StyledDeleteOption onClick={handleDeleteFile}/>}
                 <StyledLabel for="csvFile">{file ? file.name : fileName}</StyledLabel>
                 </StyledFileDiv>
-                <StyledInput type="file" name="csvFile" id="csvFile" accept=".csv" ref={inputFileRef} onChange={handleFileChange} required />
+                <StyledInput type="file" name="csvFile" id="csvFile" accept=".csv" capture="filesystem" ref={inputFileRef} onChange={handleFileChange} required />
                 </StyledFormDiv>
                 {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
                 <StyledButton type="submit" onClick={handleSubmit}>Enviar</StyledButton>
