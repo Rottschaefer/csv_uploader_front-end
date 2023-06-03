@@ -1,1 +1,1 @@
-export const PATH = "http://localhost:3003"
+export const PATH = "https://csv-uploader-backend.onrender.com"

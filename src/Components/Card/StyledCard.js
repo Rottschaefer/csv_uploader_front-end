@@ -8,7 +8,7 @@ flex-direction: column;
 justify-content: end;
 gap: 5px;
 padding-bottom: 30px;
-margin: 15px;
+/* margin: 15px; */
 width: 15rem;
 height: 20rem;
 border-radius: 10px;

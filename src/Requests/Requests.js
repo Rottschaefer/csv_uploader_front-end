@@ -10,10 +10,10 @@ export const Requests = (path) => {
     
     }
 
-    const getInfo = async (setInfo) =>{
+    const getInfo = async (setInfo, setFilteredInfo) =>{
         
         await axios.get(path)
-        .then(response => setInfo(response.data))
+        .then(response => {setInfo(response.data); setFilteredInfo(response.data)})
         .catch(error => console.log(error.message))
         
         }
