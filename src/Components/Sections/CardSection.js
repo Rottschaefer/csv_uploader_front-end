@@ -1,8 +1,10 @@
 import { Card } from "../Card/Card"
-import { StyledCardSection, StyledForm, StyledMain } from "./StyledCardSection"
+import { StyledButton, StyledCardSection, StyledForm, StyledMain, StyledMessage, StyledSearch } from "./StyledCardSection"
 import { useState } from "react";
 import { Requests } from "../../Requests/Requests";
 import { PATH } from "../../Requests/path";
+import { Form } from "../Form/Form";
+import { useEffect } from "react";
 
 
 export const CardSection = () => {
@@ -11,12 +13,44 @@ export const CardSection = () => {
     const { getInfo } = Requests(`${PATH}/api/users`);
     const [file, setFile] = useState(null);
     const [info, setInfo] = useState([]);
+    const [filteredInfo, setFilteredInfo] = useState([]);
+    const [form, setForm] = useState(true);
+    const [error, setError] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const handleSearchTermChange = (event) => {
+        setSearchTerm(event.target.value)
+    }
+
+    useEffect(() => {
+        const searchedInfo = info.filter((card) =>
+          card.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          card.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          card.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          card.favorite_sport.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredInfo(searchedInfo);
+      }, [searchTerm]);
+
+
 
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
+        setError("")
+        console.log(file)
     };
 
     const handleSubmit = async (event) => {
+
+        if(!file){
+            setError("Error: No file selected")
+        }
+        else{
+
+        setError("")
+
+        setForm(false)
+
         event.preventDefault();
 
         const formData = new FormData();
@@ -25,18 +59,25 @@ export const CardSection = () => {
 
         await postCSV(formData)
 
-        await getInfo(setInfo)
+        await getInfo(setInfo, setFilteredInfo)
 
         console.log(info)
+        }
     };
+
+    const handleForm = () => {
+        setForm(!form)
+    }
+
     return (
         <StyledMain>
-            <StyledForm onSubmit={handleSubmit}>
-                <input type="file" name="csvFile" accept=".csv" onChange={handleFileChange} required />
-                <button type="submit">Enviar</button>
-            </StyledForm>
+            {!form && <StyledSearch placeholder="Find a term in the cards" value={searchTerm} onChange={handleSearchTermChange}/>}
+            {form && <Form handleSubmit={handleSubmit} handleFileChange={handleFileChange} file={file} setFile={setFile} error={error}/>}            
             <StyledCardSection>
-                {info.map((person) => { return (<Card person={person} />) })}
+                {filteredInfo.map((person) => { return (
+                <Card person={person} />
+                ) })}
+                {!form && filteredInfo.length === 0 && <StyledMessage>There is no mention of this term among the cards :/</StyledMessage>}
             </StyledCardSection>
         </StyledMain>
     )
