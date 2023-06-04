@@ -28,7 +28,7 @@ export const StyledPopUp = styled.div`
 display: flex;
 flex-direction: column;
 width: 300px;
-height: 300px;
+height: 400px;
 border-radius: 10px;
 background-color: white;
 box-shadow: 3px 3px 10px black;
@@ -36,10 +36,7 @@ box-shadow: 3px 3px 10px black;
 display: flex;
 justify-content: center;
 align-items: center;
-position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+margin-top: 10px;
 ` 
 
 export const StyledForm = styled.form`
@@ -64,6 +61,12 @@ align-items: center;
 border: 2px dashed #1475cf;
 border-radius: 7px;
 cursor: pointer;
+
+transition: all 0.5s;
+
+:hover{
+  background-color: #b3d8ff;
+}
 ` 
 
 export const StyledInput = styled.input`
@@ -93,6 +96,10 @@ padding: 15px;
 border-radius: 7px;
 cursor: pointer;
 
+transition: all 1s;
+
+opacity: ${props=>props.isLoading ? 0.5 : 1};
+
 `
 
 export const StyledErrorMessage = styled.p`
@@ -101,4 +108,31 @@ font-weight: 600;
 color: red;
 margin-top: 7px;
 margin-bottom: -5px;
+`
+
+export const StyledExample = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+height: 30%;
+background-color: black;
+margin-bottom: 20px;
+`
+export const StyledExampleText = styled.p`
+color: white;
+text-align: center;
+font-family: 'Roboto', sans-serif;
+font-weight: 600;
+font-size: 13px;
+margin-top: 0px;
+margin-bottom: 0px;
+`
+
+export const StyledExampleTitle = styled.p`
+text-align: center;
+font-family: 'Roboto', sans-serif;
+font-weight: 600;
+margin-top: 0px;
+/* margin-bottom: 0px; */
 `
