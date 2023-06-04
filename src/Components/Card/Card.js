@@ -5,6 +5,7 @@ import tennis from "../../Assets/tennis.jpg"
 import swimming from "../../Assets/swimming.jpg"
 import running from "../../Assets/running.jpg"
 import volley from "../../Assets/volley.jpg"
+import standard from "../../Assets/standard.jpg"
 
 export const Card = ({ person }) => {
 
@@ -30,7 +31,7 @@ export const Card = ({ person }) => {
             image = volley;
             break;
         default:
-            image = 'https://example.com/images/default.jpg';
+            image = standard;
     }
 
 

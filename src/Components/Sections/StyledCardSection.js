@@ -44,3 +44,11 @@ font-family: 'Roboto', sans-serif;
 font-weight: 300;
 color: red;
 ` 
+
+export const StyledDescription = styled.h2`
+text-align: center;
+font-family: 'Roboto', sans-serif;
+font-size: 20px;
+width: 75%;
+color: white;
+`

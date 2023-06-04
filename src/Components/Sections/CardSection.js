@@ -1,5 +1,5 @@
 import { Card } from "../Card/Card"
-import { StyledButton, StyledCardSection, StyledForm, StyledMain, StyledMessage, StyledSearch } from "./StyledCardSection"
+import { StyledButton, StyledCardSection, StyledDescription, StyledForm, StyledMain, StyledMessage, StyledSearch } from "./StyledCardSection"
 import { useState } from "react";
 import { Requests } from "../../Requests/Requests";
 import { PATH } from "../../Requests/path";
@@ -17,6 +17,7 @@ export const CardSection = () => {
     const [form, setForm] = useState(true);
     const [error, setError] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSearchTermChange = (event) => {
         setSearchTerm(event.target.value)
@@ -24,13 +25,13 @@ export const CardSection = () => {
 
     useEffect(() => {
         const searchedInfo = info.filter((card) =>
-          card.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          card.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          card.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          card.favorite_sport.toLowerCase().includes(searchTerm.toLowerCase())
+            card.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            card.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            card.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            card.favorite_sport.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setFilteredInfo(searchedInfo);
-      }, [searchTerm]);
+    }, [searchTerm]);
 
 
 
@@ -42,27 +43,39 @@ export const CardSection = () => {
 
     const handleSubmit = async (event) => {
 
-        if(!file){
-            setError("Error: No file selected")
+        try {
+            
+            if (!file) {
+                setError("Error: No file selected")
+            }
+            else {
+                setIsLoading(true)
+
+                setError("")
+
+
+                event.preventDefault();
+
+                const formData = new FormData();
+                formData.append("csvFile", file);
+
+
+                await postCSV(formData)
+
+                await getInfo(setInfo, setFilteredInfo)
+
+                setForm(false)
+
+                setIsLoading(false)
+
+            }
         }
-        else{
-
-        setError("")
-
-        setForm(false)
-
-        event.preventDefault();
-
-        const formData = new FormData();
-        formData.append("csvFile", file);
-
-
-        await postCSV(formData)
-
-        await getInfo(setInfo, setFilteredInfo)
-
-        console.log(info)
+        catch (error) {
+            setIsLoading(false)
         }
+
+
+
     };
 
     const handleForm = () => {
@@ -71,12 +84,21 @@ export const CardSection = () => {
 
     return (
         <StyledMain>
-            {!form && <StyledSearch placeholder="Find a term in the cards" value={searchTerm} onChange={handleSearchTermChange}/>}
-            {form && <Form handleSubmit={handleSubmit} handleFileChange={handleFileChange} file={file} setFile={setFile} error={error}/>}            
+            {!form && <StyledSearch placeholder="Find a term in the cards" value={searchTerm} onChange={handleSearchTermChange} />}
+            {form &&
+
+                <StyledDescription>
+                    Hello! Here you can upload a .csv file(similar to an excel table) and render the files's information in cards that will be displayed at the screen!
+                </StyledDescription>
+
+            }
+            {form && <Form isLoading={isLoading} handleSubmit={handleSubmit} handleFileChange={handleFileChange} file={file} setFile={setFile} error={error} />}
             <StyledCardSection>
-                {filteredInfo.map((person) => { return (
-                <Card person={person} />
-                ) })}
+                {filteredInfo.map((person) => {
+                    return (
+                        <Card person={person} />
+                    )
+                })}
                 {!form && filteredInfo.length === 0 && <StyledMessage>There is no mention of this term among the cards :/</StyledMessage>}
             </StyledCardSection>
         </StyledMain>
