@@ -28,7 +28,7 @@ export const StyledPopUp = styled.div`
 display: flex;
 flex-direction: column;
 width: 300px;
-height: 400px;
+height: auto;
 border-radius: 10px;
 background-color: white;
 box-shadow: 3px 3px 10px black;
@@ -41,12 +41,13 @@ margin-top: 10px;
 
 export const StyledForm = styled.form`
 display: flex;
-width: 100%;
-height: 100%;
+width: 280px;
+height: 280px;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 cursor: pointer;
+margin-top: 10px;
 ` 
 
 
@@ -108,6 +109,7 @@ font-weight: 600;
 color: red;
 margin-top: 7px;
 margin-bottom: -5px;
+text-align: center;
 `
 
 export const StyledExample = styled.div`
@@ -133,6 +135,6 @@ export const StyledExampleTitle = styled.p`
 text-align: center;
 font-family: 'Roboto', sans-serif;
 font-weight: 600;
-margin-top: 0px;
+margin-top: 10px;
 /* margin-bottom: 0px; */
 `
