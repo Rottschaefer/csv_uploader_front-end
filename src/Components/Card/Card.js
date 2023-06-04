@@ -6,8 +6,13 @@ import swimming from "../../Assets/swimming.jpg"
 import running from "../../Assets/running.jpg"
 import volley from "../../Assets/volley.jpg"
 import standard from "../../Assets/standard.jpg"
+import { useEffect, useState } from "react"
 
 export const Card = ({ person }) => {
+
+    const [fade, setFade] = useState(false)
+
+    useEffect(()=>setFade(true),[])
 
     let image
 
@@ -36,7 +41,7 @@ export const Card = ({ person }) => {
 
 
     return (
-        <StyledCard image={image}>
+        <StyledCard fade={fade} image={image}>
             <StyledText>{person.name}</StyledText>
             <StyledLocation>
             <StyledPin/>

@@ -15,7 +15,7 @@ export const CardSection = () => {
     const [info, setInfo] = useState([]);
     const [filteredInfo, setFilteredInfo] = useState([]);
     const [form, setForm] = useState(true);
-    const [error, setError] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -37,8 +37,7 @@ export const CardSection = () => {
 
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
-        setError("")
-        console.log(file)
+        setErrorMessage("")
     };
 
     const handleSubmit = async (event) => {
@@ -46,12 +45,13 @@ export const CardSection = () => {
         try {
             
             if (!file) {
-                setError("Error: No file selected")
+                event.preventDefault();
+                setErrorMessage("Error: No file selected")
             }
             else {
                 setIsLoading(true)
 
-                setError("")
+                setErrorMessage("")
 
 
                 event.preventDefault();
@@ -71,6 +71,7 @@ export const CardSection = () => {
             }
         }
         catch (error) {
+            setErrorMessage(error.message)
             setIsLoading(false)
         }
 
@@ -92,7 +93,7 @@ export const CardSection = () => {
                 </StyledDescription>
 
             }
-            {form && <Form isLoading={isLoading} handleSubmit={handleSubmit} handleFileChange={handleFileChange} file={file} setFile={setFile} error={error} />}
+            {form && <Form isLoading={isLoading} handleSubmit={handleSubmit} handleFileChange={handleFileChange} file={file} setFile={setFile} error={errorMessage} />}
             <StyledCardSection>
                 {filteredInfo.map((person) => {
                     return (

@@ -31,18 +31,17 @@ export const Form = ({ handleSubmit, handleFileChange, file, setFile, error, isL
                     <StyledInput type="file" name="csvFile" id="csvFile" accept=".csv" ref={inputFileRef} onChange={handleFileChange} required />
                 </StyledFormDiv>
                 {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
-                <StyledButton isLoading={isLoading} type="submit" onClick={handleSubmit}>{isLoading? "Sending..." : "Upload"}</StyledButton>
-                {/* <StyledButton type="submit" onClick={handleSubmit}>Upload</StyledButton> */}
+                <StyledButton isLoading={isLoading} type="submit" onClick={handleSubmit}>{isLoading ? "Sending..." : "Upload"}</StyledButton>
             </StyledForm>
             <StyledExampleTitle>
-                    Your file should be like this:
-                </StyledExampleTitle>
+                Your file should be like this:
+            </StyledExampleTitle>
             <StyledExample>
                 <StyledExampleText>
                     name,city,country,favorite_sport
-                    <br/>
+                    <br />
                     John Doe,New York,USA,Basketball
-                    <br/>
+                    <br />
                     Jane Smith,London,UK,Football
                 </StyledExampleText>
             </StyledExample>

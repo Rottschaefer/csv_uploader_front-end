@@ -17,7 +17,8 @@ display: flex;
 flex-wrap: wrap;
 justify-content: center;
 align-items: center;
-gap: 15px;
+gap: 40px;
+margin-bottom: 30px;
 ` 
 
 export const StyledButton = styled.button`

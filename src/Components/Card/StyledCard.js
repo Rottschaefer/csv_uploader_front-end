@@ -18,6 +18,10 @@ background-color: black;
 background-size: cover;
 
 box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5);
+
+opacity: ${props=>props.fade ? 1 : 0};
+
+transition: all 2s;
 `
 
 
