@@ -37,6 +37,19 @@ Conect with me on LinkedIn! - https://www.linkedin.com/in/eduardo-rottschaefer
 - [x] Clear and user-friendly error handling.
 - [x] It should be implemented as a single-page application (SPA) using React.
 
+## 👨‍💻Technologies and Structures
+
+- [x] ReactJS
+- [x] JavaScript
+- [x] HTML/CSS
+- [x] Styled-Components
+- [x] React Icons
+- [x] Axios
+- [x] Jest
+- [x] React Testing Library
+- [x] Component Structure
+
+
 
 
 ## 🔗Deploy Link
