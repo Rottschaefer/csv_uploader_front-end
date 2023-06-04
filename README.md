@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+<h1 align="center">
+     CSV Uploader - Front End
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h4 align="left">
+    Transform your boring .csv file in beautiful cards!  
+</h4>
 
-## Available Scripts
 
-In the project directory, you can run:
+##  🕵About
 
-### `npm start`
+In this repository you find the front-end for an .csv uploader application. In the application you are able to upload a .csv file that will be rendered as cards in the website.
+The file must contain the following properties: name, city, coutry and favorite_sport.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You find the back-end of this project on this link: https://github.com/Rottschaefer/csv_uploader_back-end
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+##  👩🏾Who does
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Eduardo Rottschaefer Oliveira
 
-### `npm run build`
+Conect with me on LinkedIn! - https://www.linkedin.com/in/eduardo-rottschaefer
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+##  🧭Status do Projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - ⌛ Done
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ☑️Requirements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [x] A search bar that allows users to search for data within the loaded CSV file.
+- [x] A button or link to load a CSV file.
+- [x] Display the loaded CSV data as cards on the website.
+- [x] A responsive design that works well on both desktop and mobile devices.
+- [x] Clear and user-friendly error handling.
+- [x] It should be implemented as a single-page application (SPA) using React.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🔗Deploy Link
 
-## Learn More
+- **Deploy Link**: https://csv-uploader-front-end.vercel.app/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🛰Running the Project
 
-### Analyzing the Bundle Size
+- Clone this repository on your machine with the command git clone https://github.com/Rottschaefer/csv_uploader_front-end.git
+- Open the project file through the terminal
+- Run npm install command
+- Run npm start command
+- Ready! Now the application is already running on your machine :)
+- Enjoy :)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📝License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is under the MIT license [MIT](./LICENSE).
