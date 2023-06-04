@@ -1,5 +1,5 @@
 import { Card } from "../Card/Card"
-import { StyledButton, StyledCardSection, StyledDescription, StyledForm, StyledMain, StyledMessage, StyledSearch } from "./StyledCardSection"
+import { StyledCardSection, StyledDescription, StyledForm, StyledMain, StyledMessage, StyledSearch } from "./StyledCardSection"
 import { useState } from "react";
 import { Requests } from "../../Requests/Requests";
 import { PATH } from "../../Requests/path";
@@ -79,9 +79,6 @@ export const CardSection = () => {
 
     };
 
-    const handleForm = () => {
-        setForm(!form)
-    }
 
     return (
         <StyledMain>

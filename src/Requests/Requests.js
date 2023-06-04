@@ -5,9 +5,7 @@ export const Requests = (path) => {
     const postCSV = async (body) =>{
         
     await axios.post(path, body)
-    .then(response => console.log(response))
     .catch(error => {
-        // console.log(error.response.data)
         throw new Error(error.response.data)
     })
     

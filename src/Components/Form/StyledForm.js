@@ -55,7 +55,6 @@ export const StyledFormDiv = styled.div`
 display: flex;
 width: 80%;
 height: 60%;
-/* background-color: wheat; */
 flex-direction: column;
 justify-content: center;
 align-items: center;
@@ -136,5 +135,4 @@ text-align: center;
 font-family: 'Roboto', sans-serif;
 font-weight: 600;
 margin-top: 10px;
-/* margin-bottom: 0px; */
 `
